@@ -1,10 +1,10 @@
 name: Update Notebooks And Refresh Page
 on:
   schedule:
-    - cron:  '15 */12 * * *'
+    - cron: '35 * * * *'
 
 jobs:
-  update-notebooks:
+  update-nb:
     runs-on: ubuntu-latest
     steps:
   
