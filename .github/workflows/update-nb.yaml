@@ -4,10 +4,11 @@ on:
     - cron:  '0 */6 * * *'
   issues:
     types: [opened]
-  push
+  push:
 
 jobs:
   update-notebooks:
+    if: 'a' == 'a'
     # if: (github.event_name == 'schedule' || (github.event_name == 'push' || (github.event.issue.title == '[dashboard] Refresh Notebooks'  && github.actor == 'gmiretti' && github.event_name == 'issues'))) && github.repository == 'OpenDataCovidAr/fastpages'
     runs-on: ubuntu-latest
     steps:
