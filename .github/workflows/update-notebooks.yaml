@@ -1,0 +1,19 @@
+name: Update Notebooks And Refresh Page
+on:
+  schedule:
+    - cron:  '15 */12 * * *'
+
+jobs:
+  update-notebooks:
+    runs-on: ubuntu-latest
+    steps:
+  
+    - name: See event name
+      run: |
+        echo "title ${title}"
+        echo "actor ${actor}"
+        echo "event_name ${event_name}"
+      env:
+        title: ${{ github.event.issue.title }}
+        actor: ${{ github.actor }}
+        event_name: ${{ github.event_name }}
