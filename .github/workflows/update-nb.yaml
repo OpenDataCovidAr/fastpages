@@ -1,19 +1,18 @@
 name: Update Notebooks And Refresh Page
 on:
   schedule:
-    - cron:  '20 15 * * *'
+    - cron:  '0 */6 * * *'
+  issues:
+    types: [opened]
   push:
     branches:
       - master # need to filter here so we only deploy when there is a push to master
   # no filters on pull requests, so intentionally left blank
   pull_request: 
 
-  # issues:
-  #   types: [opened]
-
 jobs:
   update-notebooks:
-    # if: (github.event_name == 'schedule' || (github.event.issue.title == '[dashboard] Refresh Notebooks'  && github.actor == 'hamelsmu' && github.event_name == 'issues'))# && github.repository == 'github/covid19-dashboard'
+    if: (github.event_name == 'schedule' || (github.event.issue.title == '[dashboard] Refresh Notebooks'  && github.actor == 'gmiretti' && github.event_name == 'issues')) && github.repository == 'OpenDataCovidAr/fastpages'
     runs-on: ubuntu-latest
     steps:
   
